@@ -52,7 +52,7 @@ static inline int handle_eof(char **line, size_t line_len, int status) {
 }
 
 int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd) {
-    if (fd < 0 || !lineptr || buf_size == 0) return -2;
+    if (fd < 0 || !lineptr || buf_size <= 0) return -2;
     s_read_line_state *state = get_state(fd, buf_size);
     char *line = NULL;
     size_t line_len = 0;
